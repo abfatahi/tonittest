@@ -18,12 +18,17 @@ const Index = (props) => {
         />
         <SelectField danger={props.danger}>
           <div className='group'>
-            <select onChange={props.onValueChange} name={props.selectName}>
+            <select
+              defaultValue
+              onChange={props.onValueChange}
+              name={props.selectName}
+            >
               <option>{props.selectPlaceholder}</option>
-              {props.data.map((item, index) => {
+              {props.data.map((item) => {
+                const { id, symbol, metrics } = item;
                 return (
-                  <option key={index} value={item.value || item.uid}>
-                    {item.name || item.value}
+                  <option key={id} value={metrics.market_data.price_usd}>
+                    {symbol}
                   </option>
                 );
               })}
@@ -31,7 +36,7 @@ const Index = (props) => {
           </div>
         </SelectField>
       </div>
-      <p>$19,087.2</p>
+      <p>{props.amount && <>${props.amount}</>}</p>
     </Container>
   );
 };
