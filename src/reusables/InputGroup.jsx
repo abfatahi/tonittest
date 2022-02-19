@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import styled from 'styled-components';
-// import { BsEye, BsEyeSlashFill } from 'react-icons/bs';
+import styled, { css } from 'styled-components';
 
 const Index = (props) => {
   return (
@@ -17,7 +16,7 @@ const Index = (props) => {
           value={props.value}
           readOnly={props.readOnly ? true : false}
         />
-        <SelectField>
+        <SelectField danger={props.danger}>
           <div className='group'>
             <select onChange={props.onValueChange} name={props.selectName}>
               <option>{props.selectPlaceholder}</option>
@@ -47,7 +46,7 @@ const Container = styled.div`
   background: #f7f8fa;
   border-radius: 25px;
   padding: 1rem;
-  border:1px solid #f7f8fa;
+  border: 1px solid #f7f8fa;
 
   :hover,
   :focus {
@@ -74,6 +73,10 @@ const Container = styled.div`
     color: #000;
     border: none;
     outline: none;
+
+    @media screen and (max-width: 425px) {
+      width: 65%;
+    }
 
     :focus {
       outline: none;
@@ -104,6 +107,10 @@ const SelectField = styled.div`
   position: relative;
   width: 30%;
 
+  @media screen and (max-width: 425px) {
+    width: 35%;
+  }
+
   .group {
     display: flex;
     align-items: center;
@@ -120,6 +127,17 @@ const SelectField = styled.div`
       box-sizing: border-box;
       border-radius: 10px;
 
+      ${(props) => css`
+        ${props.danger &&
+        css`
+          background: #e24307;
+          color: #fff;
+
+          .group::after {
+            color: #fff !important;
+          }
+        `}
+      `}
       -webkit-appearance: none;
       appearance: none;
 
@@ -136,8 +154,11 @@ const SelectField = styled.div`
     right: 6px;
     position: absolute;
 
-    @media screen and (max-width: 425px) {
-      top: 16px;
-    }
+    ${(props) => css`
+      ${props.danger &&
+      css`
+        color: #fff;
+      `}
+    `}
   }
 `;

@@ -21,6 +21,7 @@ const Index = () => {
           placeholder='0.0'
           selectPlaceholder='Select token'
           data={[{ value: 'ETH' }]}
+          danger
         />
         <SwapButton onClick={() => dispatch(toggleSwap())}>
           <BsArrowDown className='icon' />
