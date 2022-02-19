@@ -1,11 +1,11 @@
 import React from 'react';
 import { DashboardLayout } from '../../../layouts';
 import Container from './styles';
-import {  SwapCard } from '../../../components/Dashboard';
+import { SwapCard } from '../../../components/Dashboard';
 // import { useDispatch, useSelector } from 'react-redux';
+// import { getCryptoList } from '../../../redux/actions/dashboard';
 
 const Index = () => {
-  // const dispatch = useDispatch();
   return (
     <DashboardLayout
       content={

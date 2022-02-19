@@ -4,9 +4,15 @@ import { Button, InputGroup } from '../../reusables';
 import { BsArrowDown } from 'react-icons/bs';
 import { useSelector, useDispatch } from 'react-redux';
 import { accountSelector, toggleSwap } from '../../redux/reducers/account';
+import { getCryptoList } from '../../redux/actions/dashboard';
 
 const Index = () => {
   const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(getCryptoList());
+  }, [dispatch]);
+  
   const { swap } = useSelector(accountSelector);
   return (
     <Container isSwap={swap}>

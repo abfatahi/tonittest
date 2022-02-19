@@ -2,9 +2,10 @@ import { configureStore } from '@reduxjs/toolkit';
 import { registerSlice } from './reducers/auth/register';
 import { loginSlice } from './reducers/auth/login';
 import { accountSlice } from './reducers/account';
+import { dashboardSlice } from './reducers/dashboard';
 import { sidebarSlice } from './reducers/sidebar';
-// import storage from 'redux-persist/lib/storage';
 import { combineReducers } from 'redux';
+
 import {
   // persistReducer,
   FLUSH,
@@ -33,6 +34,7 @@ const reducer = combineReducers({
   login: loginSlice.reducer,
   sidebar: sidebarSlice.reducer,
   account: accountSlice.reducer,
+  dashboard: dashboardSlice.reducer,
 });
 
 // const persistedReducer = persistReducer(persistConfig, reducers);

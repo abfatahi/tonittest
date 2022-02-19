@@ -15,7 +15,7 @@ export const getCryptoList = createAsyncThunk(
       });
 
       let data = await response.json();
-      if (data.success === 'success') {
+      if (data.data) {
         return data.data;
       } else {
         return thunkAPI.rejectWithValue(data);
