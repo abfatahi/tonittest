@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import 'antd/dist/antd.css';
+import 'aos/dist/aos.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from 'react-router-dom';
+import { LoginComponent, RegisterComponent } from './pages/Authentication';
+import { Home } from './pages/Dashboard';
+import { ProtectedRoute } from './hooks';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        {/* Authentication */}
+        <Route path='/login' element={<LoginComponent />} />
+        <Route path='/register' element={<RegisterComponent />} />
+
+        {/* Dashboard Routes */}
+        <Route path='/' element={<ProtectedRoute />}>
+          <Route path='/' element={<Home />} />
+        </Route>
+
+        {/* 404 Routes */}
+        <Route path='*' element={<Navigate to='/' />} />
+      </Routes>
+    </Router>
   );
 }
 
