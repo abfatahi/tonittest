@@ -31,6 +31,7 @@ const Index = () => {
           placeholder='0.0'
           selectPlaceholder='Base token'
           data={cryptoList}
+          readOnly={baseCurrency ? false : true}
           onValueChange={(e) =>
             setValues((prevState) => ({
               ...prevState,
@@ -50,6 +51,7 @@ const Index = () => {
           selectPlaceholder='Select token'
           data={cryptoList}
           danger
+          readOnly={targetCurrency ? false : true}
           onValueChange={(e) =>
             setValues((prevState) => ({
               ...prevState,
