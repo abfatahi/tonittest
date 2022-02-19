@@ -90,8 +90,8 @@ const Container = styled.button`
     ${props.danger &&
     css`
       border: none;
-      background: #efd9b7;
-      color: #e24307;
+      color: #efd9b7;
+      background: #e24307;
       font-weight: bold;
       font-size:1.3em;
       text-transform: capitalize !important;

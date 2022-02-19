@@ -55,7 +55,7 @@ const Container = styled.div`
 
   :hover,
   :focus {
-    border: 1px solid #bdbdbd;
+    border: 1px solid #e24307;
   }
 
   .group {

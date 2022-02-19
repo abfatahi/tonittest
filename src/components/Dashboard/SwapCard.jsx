@@ -78,7 +78,7 @@ export default Index;
 const Container = styled.div`
   position: relative;
   width: 100%;
-  background: #fff;
+  background: #efd9b7;
   border-radius: 25px;
   padding: 1rem;
   display: flex;
@@ -101,12 +101,12 @@ const Container = styled.div`
 
 const SwapButton = styled.div`
   position: absolute;
-  left: 47%;
+  left: 45.5%;
   top: 37.5%;
   z-index: 70;
   padding: 0.5em;
   border-radius: 10px;
-  border: 3px solid #fff;
+  border: 3px solid #efd9b7;
   background: #f7f8fa;
   cursor: pointer;
 
