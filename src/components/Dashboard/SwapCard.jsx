@@ -26,6 +26,10 @@ const Index = () => {
   return (
     <Container isSwap={swap}>
       <h4>Swap</h4>
+      <div>
+        <span style={{ color: '#e24307' }}>* </span>Value field is disabled
+        until a <b>crypto assets</b> is selected
+      </div>
       <div className='input__group'>
         <InputGroup
           placeholder='0.0'
