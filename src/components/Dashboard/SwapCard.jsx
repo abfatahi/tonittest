@@ -101,9 +101,8 @@ const Container = styled.div`
 
 const SwapButton = styled.div`
   position: absolute;
-  left: 50%;
+  left: 47%;
   top: 37.5%;
-  transform: translate(-50%, 50);
   z-index: 70;
   padding: 0.5em;
   border-radius: 10px;
