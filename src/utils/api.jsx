@@ -1,3 +1,1 @@
-export const baseURL = `https://api.paystack.co/`;
-export const paystackTestSecretKey =
-  'sk_test_824a649c35f1ae8886b4117eba2bbb11284014bf';
+export const messariURL = `https://data.messari.io/api/v1/assets?fields=id,slug,symbol,metrics/market_data/price_usd`;
