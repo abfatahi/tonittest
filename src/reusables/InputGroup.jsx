@@ -47,6 +47,7 @@ const Container = styled.div`
   background: #f7f8fa;
   border-radius: 25px;
   padding: 1rem;
+  border:1px solid #f7f8fa;
 
   :hover,
   :focus {

@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import {
   FaBuffer,
-  FaWallet,
-  FaExchangeAlt,
   FaSignOutAlt,
   FaUserAlt,
   FaTimes,
@@ -42,28 +40,6 @@ const Sidebar = (props) => {
       >
         <FaBuffer className='icon' />
         <p>Dashboard</p>
-      </SidebarTabs>
-      <SidebarTabs
-        onClick={() => {
-          localStorage.setItem('tab', 'Accounts');
-          dispatch(toggleSidebar());
-        }}
-        className={activeTab === 'Accounts' ? 'active' : ''}
-        to={'/account'}
-      >
-        <FaWallet className='icon' />
-        <p>Accounts</p>
-      </SidebarTabs>
-      <SidebarTabs
-        onClick={() => {
-          localStorage.setItem('tab', 'Transfers');
-          dispatch(toggleSidebar());
-        }}
-        className={activeTab === 'Transfers' ? 'active' : ''}
-        to={'/transfer'}
-      >
-        <FaExchangeAlt className='icon' />
-        <p>Transfers</p>
       </SidebarTabs>
       <SidebarTabs
         onClick={() => {

@@ -1,25 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
-import { InputGroup } from '../../reusables';
+import { Button, InputGroup } from '../../reusables';
 import { BsArrowDown } from 'react-icons/bs';
+import { useSelector, useDispatch } from 'react-redux';
+import { accountSelector, toggleSwap } from '../../redux/reducers/account';
 
 const Index = () => {
+  const dispatch = useDispatch();
+  const { swap } = useSelector(accountSelector);
   return (
-    <Container>
+    <Container isSwap={swap}>
       <h4>Swap</h4>
-      <InputGroup
-        placeholder='0.0'
-        selectPlaceholder='ETH'
-        data={[{ value: 'ETH' }]}
-      />
-      <InputGroup
-        placeholder='0.0'
-        selectPlaceholder='Select token'
-        data={[{ value: 'ETH' }]}
-      />
-      <SwapButton>
-        <BsArrowDown />
-      </SwapButton>
+      <div className='input__group'>
+        <InputGroup
+          placeholder='0.0'
+          selectPlaceholder='ETH'
+          data={[{ value: 'ETH' }]}
+        />
+        <InputGroup
+          placeholder='0.0'
+          selectPlaceholder='Select token'
+          data={[{ value: 'ETH' }]}
+        />
+        <SwapButton onClick={() => dispatch(toggleSwap())}>
+          <BsArrowDown className='icon' />
+        </SwapButton>
+      </div>
+      <Button text='Connect Wallet' danger full />
     </Container>
   );
 };
@@ -41,12 +48,19 @@ const Container = styled.div`
     font-size: 1.2rem;
     font-weight: bold;
   }
+
+  .input__group {
+    position: relative;
+    display: flex;
+    flex-direction: ${({ isSwap }) => (isSwap ? 'column-reverse' : 'column')};
+    gap: 0.5rem;
+  }
 `;
 
 const SwapButton = styled.div`
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 37.5%;
   transform: translate(-50%, 50);
   z-index: 70;
   padding: 0.5em;
@@ -55,6 +69,10 @@ const SwapButton = styled.div`
   background: #f7f8fa;
   cursor: pointer;
 
+  .icon {
+    font-size: 1.2rem;
+    color: #000;
+  }
   :hover {
     opacity: 0.6;
   }

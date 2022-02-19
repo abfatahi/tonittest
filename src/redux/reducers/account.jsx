@@ -4,6 +4,7 @@ export const accountSlice = createSlice({
   name: 'account',
   initialState: {
     showBalance: false,
+    swap: false,
   },
   reducers: {
     clearState: (state) => {
@@ -13,13 +14,15 @@ export const accountSlice = createSlice({
       state.showBalance = !state.showBalance;
       return state;
     },
+    toggleSwap: (state) => {
+      state.swap = !state.swap;
+      return state;
+    },
   },
-  extraReducers: {
-    
-  },
+  extraReducers: {},
 });
 
-export const { clearState, toggleShowBalance } =
+export const { clearState, toggleShowBalance, toggleSwap } =
   accountSlice.actions;
 
 export const accountSelector = (state) => state.account;

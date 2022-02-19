@@ -14,6 +14,7 @@ const Button = ({
   outline,
   light,
   dark,
+  danger,
   type = 'submit',
   disabled = false,
 }) => {
@@ -25,6 +26,7 @@ const Button = ({
       type={type ? type : ''}
       full={full ? full : undefined}
       dark={dark ? dark : undefined}
+      danger={danger ? danger : undefined}
       primary={primary}
       info={info ? info : undefined}
       secondary={secondary ? secondary : undefined}
@@ -84,6 +86,17 @@ const Container = styled.button`
     css`
       background: #000;
       color: #ffffff;
+    `}
+    ${props.danger &&
+    css`
+      border: none;
+      background: #efd9b7;
+      color: #e24307;
+      font-weight: bold;
+      font-size:1.3em;
+      text-transform: capitalize !important;
+      height:3.5rem;
+      border-radius:20px;
     `}
     ${props.outline &&
     css`
